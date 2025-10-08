@@ -1,6 +1,6 @@
-# 🤖 Performance Analytics AI Agent
+# 🤖 AI Performance Analytics Agent
 
-An **Agentic AI** project designed for educational purposes, demonstrating how AI agents can autonomously analyze data, generate insights, and provide intelligent assistance. Built with Python and Streamlit for the **Agentic AI Course**.
+A comprehensive **Agentic AI** project designed for educational purposes, demonstrating how AI agents can autonomously analyze data, generate insights, and provide intelligent assistance. Built with Python and Streamlit for the **Agentic AI Course**.
 
 ## 🎯 Project Focus: Agentic AI Education
 
@@ -13,16 +13,62 @@ This project is specifically designed to teach students about **Agentic AI** con
 - **💬 Conversational AI**: Natural language interaction
 - **📊 Data Analysis**: Intelligent data processing and insights
 
-## 🏗️ Project Structure
+## 🏗️ Project Architecture
+
+```mermaid
+graph TB
+    A[User Interface] --> B[AI Agent Core]
+    B --> C[Memory System]
+    B --> D[Planning Engine]
+    B --> E[Reasoning Module]
+    B --> F[Tool Interface]
+    
+    F --> G[Data Processor]
+    F --> H[Visualizer]
+    F --> I[Report Generator]
+    
+    G --> J[Data Validation]
+    G --> K[Data Cleaning]
+    G --> L[Feature Engineering]
+    
+    H --> M[Chart Generation]
+    H --> N[Interactive Plots]
+    H --> O[Custom Visualizations]
+    
+    I --> P[PDF Reports]
+    I --> Q[HTML Reports]
+    I --> R[DOCX Reports]
+    
+    B --> S[Google Gemini API]
+    S --> T[Natural Language Processing]
+    S --> U[AI Analytics]
+    S --> V[Conversational AI]
+```
+
+## 📁 Project Structure
 
 ```
 ai_agent/
 ├── main.py                 # Main entry point
 ├── requirements.txt        # Python dependencies
+├── env.example            # Environment variables template
+├── README.md              # Project documentation
+├── PROJECT_STRUCTURE.md   # Detailed structure documentation
+│
 ├── config/                # Configuration files
+│   └── settings.py        # Application settings
+│
 ├── src/                   # Core source code
+│   ├── agent.py          # AI Agent implementation
+│   ├── data_processor.py # Data processing logic
+│   └── visualizer.py     # Data visualization
+│
 ├── dashboards/           # Streamlit dashboard implementations
+│   └── professional_dashboard.py  # Main production dashboard
+│
 ├── data/                 # Data storage
+│   └── sample_data.csv   # Sample datasets
+│
 ├── reports/              # Generated reports
 ├── logs/                 # Application logs
 ├── tests/                # Test files
@@ -31,33 +77,26 @@ ai_agent/
 └── cache/                # Temporary cache files
 ```
 
-See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed organization.
-
 ## 🚀 Quick Start
 
-### 1. Setup Environment
+### 1. Installation
 
 ```bash
-# Clone or navigate to the project
+# Clone the repository
+git clone <repository-url>
 cd ai_agent
-
-# Create virtual environment
-python -m venv .venv
-
-# Activate virtual environment
-# Windows:
-.\.venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Configure Environment
+### 2. Configuration
 
-Create a `.env` file:
-```env
+```bash
+# Copy environment template
+cp env.example .env
+
+# Edit .env with your API keys
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
@@ -74,248 +113,282 @@ Visit: http://localhost:8501
 ## 🎓 Key Features
 
 ### 🤖 AI Agent Capabilities
-- **Memory System**: Remembers interactions and analysis history
-- **Planning Engine**: Creates step-by-step plans for complex tasks
-- **Reasoning Module**: Makes logical inferences about data
-- **Tool Interface**: Uses specialized tools for analysis
-- **Conversational AI**: Natural language data queries
-- **Learning System**: Improves through user interactions
 
-### 📊 Data Analysis Features
-- **Intelligent Data Processing**: Automatic data validation and cleaning
-- **AI-Powered Insights**: Google Gemini integration for advanced analysis
-- **Interactive Visualizations**: Dynamic charts and graphs
-- **Anomaly Detection**: Automatic identification of outliers
-- **Trend Analysis**: Pattern recognition and forecasting
-- **Automated Reporting**: Generate insights and recommendations
-
-### 🎓 Educational Components
-- **Interactive Demos**: Hands-on agent capability demonstrations
-- **Learning Guide**: Comprehensive explanation of agentic AI concepts
-- **Code Examples**: Well-documented, educational codebase
-- **Real-world Applications**: Practical use cases and scenarios
-
-## 🔧 Configuration
-
-The application uses a comprehensive configuration system in `config/settings.py`:
-
-### AI Configuration
-```python
-ai_config = AIConfig(
-    gemini_api_key="your_api_key",
-    gemini_model="gemini-1.5-flash",
-    max_tokens=2048,
-    temperature=0.7,
-    enable_ai=True
-)
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant D as Dashboard
+    participant A as AI Agent
+    participant G as Gemini API
+    participant V as Visualizer
+    
+    U->>D: Upload Data
+    D->>A: Process Data
+    A->>A: Analyze Structure
+    A->>A: Generate Insights
+    
+    U->>D: Ask Question
+    D->>A: Process Query
+    A->>G: Send to Gemini
+    G->>A: AI Response
+    A->>V: Generate Chart
+    V->>A: Chart Data
+    A->>D: Return Results
+    D->>U: Display Response & Chart
 ```
 
-### Agent Configuration
-```python
-agent_config = AgentConfig(
-    memory_limit=100,
-    enable_planning=True,
-    enable_reasoning=True,
-    enable_tools=True,
-    auto_insights=True,
-    confidence_threshold=0.7
-)
+### 📊 Data Processing Pipeline
+
+```mermaid
+flowchart LR
+    A[Raw Data] --> B[Data Validation]
+    B --> C[Data Cleaning]
+    C --> D[Feature Engineering]
+    D --> E[Data Analysis]
+    E --> F[Insight Generation]
+    F --> G[Visualization]
+    G --> H[Report Generation]
+    
+    style A fill:#ff9999
+    style H fill:#99ff99
 ```
 
-### UI Configuration
-```python
-ui_config = UIConfig(
-    page_title="Performance Analytics AI Agent",
-    page_icon="🤖",
-    layout="wide",
-    theme="dark",
-    max_file_size=200  # MB
-)
-```
+### 💬 Conversational Interface
 
-## 🎯 Usage Examples
+- **Natural Language Processing**: Ask questions in plain English
+- **Context-Aware Responses**: AI understands your data structure
+- **Automatic Visualizations**: Charts generated based on questions
+- **Smart Suggestions**: AI recommends relevant questions
+- **Chat History**: Persistent conversation memory
 
-### 1. Upload and Analyze Data
-1. Upload a CSV or Excel file in the sidebar
-2. The agent automatically processes and validates the data
-3. View data overview and quality metrics
-4. Ask questions in natural language
+### 📈 Advanced Analytics
 
-### 2. Ask Questions
-Try these example queries:
-- "What are the key trends in this data?"
-- "Which team performed best and why?"
-- "Generate insights about performance patterns"
-- "What anomalies do you detect?"
-- "Create a plan to improve performance"
+- **Statistical Analysis**: Comprehensive data insights
+- **Trend Detection**: Time-series analysis
+- **Correlation Analysis**: Relationship discovery
+- **Outlier Detection**: Anomaly identification
+- **Predictive Insights**: AI-powered forecasting
 
-### 3. Explore Agent Capabilities
-- **Planning**: Watch the agent create step-by-step plans
-- **Reasoning**: See logical analysis in action
-- **Tool Usage**: Test different analysis capabilities
-- **Memory**: Explore persistent context storage
-
-### 4. Generate Insights
-- **Automated Analysis**: AI-powered data insights
-- **Interactive Visualizations**: Dynamic charts and graphs
-- **Anomaly Detection**: Automatic outlier identification
-- **Trend Analysis**: Pattern recognition and forecasting
-
-## 🧠 Agent Architecture
+## 🔧 Technical Architecture
 
 ### Core Components
 
-1. **PerformanceAnalyticsAgent** (`src/agent.py`)
-   - Memory management
-   - Planning and reasoning
-   - AI integration
-   - Tool orchestration
-
-2. **DataProcessor** (`src/data_processor.py`)
-   - File handling and validation
-   - Data cleaning and preprocessing
-   - Quality assessment
-   - Metadata generation
-
-3. **DataVisualizer** (`src/visualizer.py`)
-   - Interactive chart creation
-   - Visualization recommendations
-   - Insight-based graphics
-   - Custom chart generation
-
-### Agent Capabilities
-
-```python
-# Initialize agent
-agent = PerformanceAnalyticsAgent(config)
-
-# Add to memory
-agent.add_to_memory("User question", "user")
-
-# Plan a task
-plan = agent.plan_task("Analyze performance trends", data)
-
-# Reason about data
-reasoning = agent.reason_about_data(data, "Which team is best?")
-
-# Generate insights
-insights = agent.generate_insights(data)
-
-# Get agent status
-status = agent.get_agent_status()
+```mermaid
+graph LR
+    subgraph "AI Agent Core"
+        A[Agent Engine]
+        B[Memory System]
+        C[Planning Module]
+        D[Reasoning Engine]
+    end
+    
+    subgraph "Data Layer"
+        E[Data Processor]
+        F[Data Validator]
+        G[Data Cleaner]
+    end
+    
+    subgraph "Visualization Layer"
+        H[Chart Generator]
+        I[Interactive Plots]
+        J[Custom Visualizations]
+    end
+    
+    subgraph "External APIs"
+        K[Google Gemini]
+        L[Plotly Charts]
+        M[Pandas Processing]
+    end
+    
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    E --> F
+    E --> G
+    A --> H
+    H --> I
+    H --> J
+    A --> K
+    H --> L
+    E --> M
 ```
 
-## 📊 Sample Data
+### Technology Stack
 
-The application includes sample data generation:
+- **Frontend**: Streamlit (Python web framework)
+- **AI Engine**: Google Gemini 2.0 Flash
+- **Data Processing**: Pandas, NumPy
+- **Visualization**: Plotly, Matplotlib, Seaborn
+- **Configuration**: Python-dotenv
+- **Logging**: Python logging module
 
-```python
-# Generate sample data
-processor = DataProcessor(config)
-sample_data = processor.create_sample_data(n_rows=100)
+## 📋 Usage Guide
 
-# Sample data includes:
-# - Date ranges
-# - Team performance metrics
-# - Sales data
-# - Customer satisfaction scores
-# - Categories and classifications
-```
+### 1. Data Upload
 
-## 🎓 Learning Objectives
+1. **Upload File**: Use the file uploader to add CSV/Excel files
+2. **Generate Sample**: Click "Generate Sample Data" for testing
+3. **Data Validation**: System automatically validates and cleans data
+4. **Preview**: View data structure and statistics
 
-After completing this project, students will understand:
+### 2. AI Chat Interface
 
-### Core Agentic AI Concepts
-- **Autonomy**: How agents make independent decisions
-- **Planning**: Breaking down complex tasks into steps
-- **Reasoning**: Logical analysis and inference
-- **Tool Usage**: Leveraging external capabilities
-- **Memory**: Persistent context and learning
+1. **Ask Questions**: Type natural language questions about your data
+2. **Smart Suggestions**: Click suggested questions for quick insights
+3. **View Responses**: Get AI-generated insights with explanations
+4. **Interactive Charts**: Explore automatically generated visualizations
 
-### Technical Skills
-- **AI Integration**: Working with language models
-- **Data Analysis**: Processing and analyzing datasets
-- **Interactive UI**: Building user-friendly interfaces
-- **API Integration**: Connecting to external services
-- **Error Handling**: Robust application design
+### 3. Analytics Dashboard
 
-### Practical Applications
-- **Business Intelligence**: Automated data analysis
-- **Decision Support**: AI-powered recommendations
-- **Process Automation**: Streamlined workflows
-- **User Experience**: Natural language interfaces
-- **Educational Tools**: Interactive learning systems
+1. **Quick Stats**: View key metrics and statistics
+2. **Data Summary**: Understand your data structure
+3. **Export Options**: Download reports in multiple formats
+4. **Settings**: Configure AI model and preferences
 
-## 🔧 Development
+## 🎨 Dashboard Features
 
-### Running in Development Mode
-```bash
-# Enable debug mode
-export DEBUG=true
+### Professional Interface
 
-# Run with auto-reload
-streamlit run app.py --server.runOnSave true
-```
+- **Dark Theme**: Modern, professional appearance
+- **Tabbed Navigation**: Organized functionality
+- **Responsive Design**: Works on all devices
+- **Real-time Updates**: Live data processing
+- **Error Handling**: Graceful error management
 
-### Adding New Capabilities
-1. Extend the `PerformanceAnalyticsAgent` class
-2. Add new tools to the agent's toolset
-3. Update the configuration system
-4. Add UI components in `app.py`
+### Interactive Elements
+
+- **File Upload**: Drag-and-drop interface
+- **Progress Indicators**: Real-time processing feedback
+- **Chat Interface**: Conversational AI interaction
+- **Chart Controls**: Interactive visualizations
+- **Export Functions**: Multiple report formats
+
+## 🔍 Example Questions
+
+### Data Exploration
+- "What are the key trends in my data?"
+- "Which team performed best overall?"
+- "Show me the distribution of sales data"
+- "Are there any outliers in the performance metrics?"
+
+### Comparative Analysis
+- "Compare performance across all teams"
+- "What's the relationship between sales and customer satisfaction?"
+- "Which quarter had the best results?"
+- "How do different metrics correlate?"
+
+### Insights & Recommendations
+- "What insights can you provide about this data?"
+- "What recommendations do you have for improvement?"
+- "What patterns do you notice in the data?"
+- "What should I focus on based on this analysis?"
+
+## 🛠️ Development
+
+### Adding New Features
+
+1. **Core Logic**: Add functionality to `src/` modules
+2. **Dashboard**: Create new interfaces in `dashboards/`
+3. **Configuration**: Update `config/settings.py`
+4. **Tests**: Add tests in `tests/` directory
 
 ### Testing
+
 ```bash
-# Run with sample data
-python -c "from src.data_processor import DataProcessor; from config.settings import config; dp = DataProcessor(config); print(dp.create_sample_data())"
+# Run tests
+python -m pytest tests/
+
+# Run with coverage
+python -m pytest tests/ --cov=src
 ```
 
-## 📚 Educational Resources
+### Logging
 
-### Learning Modules
-1. **Introduction to Agentic AI**: Core concepts and principles
-2. **Agent Architecture**: Memory, planning, and reasoning systems
-3. **Tool Integration**: Using external APIs and services
-4. **Conversational AI**: Natural language processing
-5. **Practical Applications**: Real-world use cases
+Logs are stored in `logs/` directory with different levels:
+- **INFO**: General application flow
+- **WARNING**: Potential issues
+- **ERROR**: Error conditions
+- **DEBUG**: Detailed debugging information
 
-### Code Examples
-- **Agent Class**: Complete agent implementation
-- **Memory System**: Persistent storage and retrieval
-- **Planning Engine**: Task decomposition and execution
-- **Tool Interface**: Modular capability system
-- **UI Integration**: Streamlit interface design
+## 📊 Data Flow
+
+```mermaid
+graph TD
+    A[User Uploads Data] --> B[Data Validation]
+    B --> C[Data Processing]
+    C --> D[AI Analysis]
+    D --> E[Insight Generation]
+    E --> F[Visualization]
+    F --> G[User Interface]
+    
+    H[User Asks Question] --> I[Natural Language Processing]
+    I --> J[Query Analysis]
+    J --> K[AI Processing]
+    K --> L[Response Generation]
+    L --> M[Chart Creation]
+    M --> N[Display Results]
+    
+    style A fill:#e1f5fe
+    style G fill:#e8f5e8
+    style H fill:#fff3e0
+    style N fill:#fce4ec
+```
+
+## 🚀 Deployment
+
+### Local Development
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Set environment variables
+export GEMINI_API_KEY=your_key_here
+
+# Run application
+streamlit run main.py
+```
+
+### Production Deployment
+
+1. **Environment Setup**: Configure production environment variables
+2. **Dependencies**: Install all required packages
+3. **Data Storage**: Set up persistent data storage
+4. **Monitoring**: Configure logging and monitoring
+5. **Scaling**: Use Streamlit Cloud or similar platform
 
 ## 🤝 Contributing
 
-This is an educational project. Contributions welcome:
-1. Fork the repository
-2. Create educational examples
-3. Add new agent capabilities
-4. Improve documentation
-5. Submit pull requests
+1. **Fork** the repository
+2. **Create** a feature branch
+3. **Make** your changes
+4. **Test** thoroughly
+5. **Submit** a pull request
 
 ## 📄 License
 
-Educational use - Part of the **Agentic AI Course** series.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🆘 Support
+## 🙏 Acknowledgments
 
-For questions and support:
-1. Check the configuration in `config/settings.py`
-2. Review the agent status in the sidebar
-3. Ensure your Gemini API key is properly configured
-4. Test with sample data first
+- **Google Gemini API** for AI capabilities
+- **Streamlit** for the web framework
+- **Plotly** for interactive visualizations
+- **Pandas** for data processing
+- **Agentic AI Course** for educational framework
 
-## 🎯 Next Steps
+## 📞 Support
 
-After mastering this project:
-1. **Extend Agent Capabilities**: Add new tools and features
-2. **Integrate More AI Models**: Try different language models
-3. **Build Specialized Agents**: Create domain-specific agents
-4. **Deploy to Production**: Learn about deployment and scaling
-5. **Advanced Topics**: Explore multi-agent systems and coordination
+For questions, issues, or contributions:
+
+1. **Issues**: Create an issue on GitHub
+2. **Documentation**: Check the docs/ directory
+3. **Examples**: See the sample data and usage examples
+4. **Community**: Join the Agentic AI course discussions
 
 ---
 
-**🎓 Perfect for Agentic AI Course demonstrations and hands-on learning!**
+**Built with ❤️ for the Agentic AI Course**
+
+*Empowering students to understand and build intelligent AI agents*
